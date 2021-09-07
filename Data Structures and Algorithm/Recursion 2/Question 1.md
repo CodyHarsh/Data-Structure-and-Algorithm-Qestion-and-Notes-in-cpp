@@ -1,4 +1,4 @@
-**Staircase**
+# Staircase
 
 
 
@@ -52,7 +52,7 @@ Integer W
 13
 ```
 
-**HERE IS THE SOLUTION:**
+## SOLUTION
 
       #include <iostream>
     using namespace std;
