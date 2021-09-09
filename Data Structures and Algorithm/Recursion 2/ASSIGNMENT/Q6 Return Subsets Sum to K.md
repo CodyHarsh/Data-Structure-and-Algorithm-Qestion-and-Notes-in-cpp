@@ -36,7 +36,7 @@ Line 3 : K
 3 3
 5 1
 ```
-## SOLUTIION:
+## SOLUTION:
 
     #include <iostream>
     using namespace std;
