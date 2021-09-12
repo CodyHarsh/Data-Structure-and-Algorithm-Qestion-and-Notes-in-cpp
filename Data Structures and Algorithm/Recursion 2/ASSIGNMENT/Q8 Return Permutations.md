@@ -40,7 +40,7 @@ bca
 cab
 cba
 ```
-## SOLUTION:
+## SOLUTION(BY FINDING OUT BD PAIRS FOR ABD, THAT IS DB AND BD AND AFTER THAT ADDING A IN FRONT OF IT.):
 
         #include <iostream>
         #include <string>
@@ -104,4 +104,35 @@ cba
     }
     }
     return k;
+    }
+
+
+## SOLUTION(BY INSERTING A IN DIFF POS):
+
+    #include <string>
+    using namespace std;
+    
+    int returnPermutations(string input, string output[]){
+       	/* Don't write main() function.
+    	 * Don't read input, it is passed as function argument.
+    	 * Print output as specified in the question
+    	*/
+        if(input.size() == 0){
+            output[0] = "";
+            return 1;
+        }
+        
+        string temp[10000];
+        int n = returnPermutations(input.substr(1) , temp);
+        int k = 0;
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<=temp[i].length(); j++){//<=n 
+            string a = temp[i].substr(0,j);
+            string c = temp[i].substr(j);
+            string d = a+input[0]+c;
+            output[k++] = d;
+            }
+        }
+     
+        return k;
     }
