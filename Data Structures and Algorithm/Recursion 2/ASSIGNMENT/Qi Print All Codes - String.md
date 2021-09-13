@@ -43,6 +43,7 @@ kw
 ## SOLUTION:
 
     #include <iostream>
+    #include<string>
     using namespace std;
     
     void print(string input, string output){
