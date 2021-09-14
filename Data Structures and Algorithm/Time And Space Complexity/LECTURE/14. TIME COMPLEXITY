@@ -1,0 +1,24 @@
+# What is time complexity
+
+#### What is the time complexity of following code ?
+
+```
+int multiplyRec(int m, int n){
+    if(n == 1)
+        return m;
+    return m + multiplyRec(m,  n - 1);  
+}
+
+```
+
+### Options
+
+O(m*n)
+
+O(n) 
+
+O(n^2)
+
+O(m)
+
+### Correct Answer
