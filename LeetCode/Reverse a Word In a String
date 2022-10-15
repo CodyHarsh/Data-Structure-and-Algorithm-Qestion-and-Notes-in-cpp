@@ -1,0 +1,59 @@
+/*
+Reverse Words in a String
+Problem Statement: Given a string s, reverse the words of the string.
+
+Examples:
+
+Example 1:
+Input: s=”this is an amazing program”
+Output: “program amazing an is this”
+
+Example 2:
+Input: s=”This is decent”
+Output: “decent is This”
+Solution:
+
+Disclaimer: Don’t jump directly to the solution, try it out yourself first.
+
+Solution 1(Brute Force)
+Intuition: We just need to print the words in reverse order. Can we somehow store them in reverse order of the occurrence and then simply add it to our answer?
+
+Approach
+Use a stack to push all the words in a stack
+Now, all the words of the string are present in the stack, but in reverse order
+Pop elements of the stack one by one and add them to our answer variable. Remember to add a space between the words as well. 
+Here’s a quick demonstration of the same
+
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s="TUF is great for interview preparation";
+    cout<<"Before reversing words: "<<endl;
+    cout<<s<<endl;
+    s+=" ";
+    stack<string> st;
+    int i;
+    string str="";
+    for(i=0;i<s.length();i++)
+    {
+        if(s[i]==' ')
+        {
+            st.push(str);
+            str="";
+        }
+        else str+=s[i];
+    }
+    string ans="";
+    while(st.size()!=1)
+    {
+        ans+=st.top()+" ";
+        st.pop();
+    }
+    ans+=st.top();// The last word should'nt have a space after it
+    cout<<"After reversing words: "<<endl;
+    cout<<ans;
+    return 0;
+}
