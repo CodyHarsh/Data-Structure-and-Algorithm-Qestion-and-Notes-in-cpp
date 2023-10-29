@@ -1,0 +1,46 @@
+import java.math.BigInteger;
+class Solution {
+    public int myAtoi(String s) {
+         s=s.trim();
+        if(s.length()==0){
+            return 0;
+        }
+        int a=0;
+        boolean isNegative=false;
+       
+        if(s.charAt(0)=='-'){
+            isNegative=true;
+            a=number(s,1,isNegative);
+        }else if(s.charAt(0)=='+'){
+            a=number(s,1,isNegative); 
+        }else if(Character.isDigit(s.charAt(0))){
+            a=number(s,0,isNegative);
+        }
+        
+        return a;
+    }
+    
+    public int number(String s,int start, boolean isNegative){
+        BigInteger a=new BigInteger("0");
+        for(int i=start;i<s.length();i++){
+            if(Character.isDigit(s.charAt(i))){
+                a= a.multiply(BigInteger.valueOf(10));
+                a= a.add( BigInteger.valueOf((s.charAt(i)-'0')));  
+            }else{
+                break;
+            }
+        }
+        if(isNegative){
+            a= a.multiply(new BigInteger("-1"));
+        } 
+        
+        if(a.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) <0){
+            return -2147483648;
+        }else if(a.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) >0){
+            return 2147483647;
+        }else{
+            return a.intValue();
+        }
+               
+    }
+}
