@@ -1,0 +1,32 @@
+class Solution {
+    public void nextPermutation(int[] arr) {
+        int pivot=-1;
+				for(int i=arr.length-2;i>=0;i--){
+					if(arr[i]<arr[i+1]){
+						pivot=i;
+						break;
+					}
+				}
+				if(pivot!=-1){
+					int toSwap=pivot;
+					for(int i=arr.length-1;i>=0;i--){
+						if(arr[pivot]<arr[i]){
+							toSwap=i;
+							break;
+						}
+					}
+					swap1(arr,pivot,toSwap);
+				}
+
+				int j=arr.length;
+				for(int i=pivot+1;i<=(pivot+arr.length-1)/2;i++){
+					swap1(arr,i,--j);
+				}
+    }
+    public void swap1(int[] arr, int x,int y){
+				int temp=arr[x];
+				arr[x]=arr[y];
+				arr[y]=temp;
+				
+			}
+}
